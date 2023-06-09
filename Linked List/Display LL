@@ -1,1 +1,5 @@
-
+struct Node *p=first;
+while(p){
+   cout<<p->data;
+   p=p->next;
+}
