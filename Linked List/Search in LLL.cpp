@@ -38,6 +38,20 @@ struct Node * Search(struct Node  *p,int key){
     return NULL;
 }
 
+struct Node *LSearch(struct Node *p,int key){
+    struct Node *q;
+    while(p){
+        if(key==p->data){
+            q->next = p->next;
+            p->next = first;
+            first = p;
+            return p;
+        }
+        q=p;
+        p=p->next;
+    }
+    return NULL;
+}
 //Recursive Approach
 struct Node *RSearch(struct Node *p,int key){
     if(!p) return NULL;
@@ -50,13 +64,17 @@ int main(){
 
     CreateLL(A, 10);
 
-    struct Node *t,*t1;
+    struct Node *t,*t1,*t2;
     t=Search(first, 20);
     if(t) cout<<"Found "<<t->data<<ln;
     else cout<<-1<<ln;
 
     t1=RSearch(first, 20);
     if(t1) cout<<"Found "<<t1->data<<ln;
+    else cout<<-1<<ln;
+
+    t2=LSearch(first, 20);
+    if(t2) cout<<"Found "<<t2->data<<ln;
     else cout<<-1<<ln;
 }
 
